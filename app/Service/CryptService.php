@@ -20,18 +20,20 @@ class CryptService
         $this->newEncrypter = new Encrypter($customKey, $cipher);
     }
 
-    function customEncrypt($vWord){
+    function customEncrypt($vWord)
+    {
         return $this->newEncrypter->encrypt($vWord);
     }
 
-    function customDecrypt($vWord){
+    function customDecrypt($vWord)
+    {
         return $this->newEncrypter->decrypt($vWord);
     }
 
     public static function decodeData(string $data, $secret_key, $type = 128)
     {
-        $cipher = config('common.cipher-'.$type);
-        $crypt = new CryptService($secret_key, $cipher);
+        $cipher = config('common.cipher-' . $type);
+        $crypt  = new CryptService($secret_key, $cipher);
 
         return $crypt->customDecrypt($data);
     }
