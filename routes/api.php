@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('decode-data', 'ToolDecodeController@decodeResponseData');
+Route::get('decode', 'ToolDecodeController@decodeData');
 Route::post('render-token', 'ToolGenTokenController@genToken');

@@ -32,7 +32,7 @@ class CryptService
 
     public static function decodeData(string $data, $secret_key, $type = 128)
     {
-        $cipher = config('common.cipher-' . $type);
+        $cipher = config('app.cipher');
         $crypt  = new CryptService($secret_key, $cipher);
 
         return $crypt->customDecrypt($data);

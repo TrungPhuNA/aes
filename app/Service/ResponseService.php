@@ -42,4 +42,13 @@ class ResponseService
 
         return $crypt->customEncrypt(json_encode($data));
     }
+
+    public static function decodeResponseData(string $data)
+    {
+        $secret_key = '59W0LNj8gh0g53Pp9Y46e3937mFItxxO';
+        $cipher     = config('app.cipher');
+        $crypt = new CryptService($secret_key, $cipher);
+
+        return $crypt->customDecrypt($data);
+    }
 }
